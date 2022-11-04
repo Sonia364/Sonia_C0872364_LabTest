@@ -65,12 +65,24 @@
                                     <action selector="stopBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q6p-Ml-1ec"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtR-eC-uCL">
+                                <rect key="frame" x="226" y="267" width="146" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.57224519569999999" green="0.57712197340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                                <connections>
+                                    <action selector="resetBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPS-Vq-lLG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <connections>
                         <outlet property="lapBtnLabel" destination="EJG-js-vXM" id="ErS-wJ-Jfx"/>
+                        <outlet property="resetBtnlabel" destination="TtR-eC-uCL" id="6v3-j7-T43"/>
                         <outlet property="startBtnLabel" destination="8WU-eL-svX" id="AHW-2y-yfu"/>
                         <outlet property="stopBtnLabel" destination="ITP-fc-pES" id="97g-qs-6T7"/>
                         <outlet property="tableView" destination="4TQ-D2-4JD" id="7c9-FQ-xTM"/>

@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startBtnLabel: UIButton!
     @IBOutlet weak var stopBtnLabel: UIButton!
     @IBOutlet weak var lapBtnLabel: UIButton!
+    @IBOutlet weak var resetBtnlabel: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var secondsElapsed = 0
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
         
         startBtnLabel.isHidden = true
         stopBtnLabel.isHidden = false
+        lapBtnLabel.isHidden = false
+        resetBtnlabel.isHidden = true
+        
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.secondsElapsed += 1
@@ -46,9 +50,20 @@ class ViewController: UIViewController {
    
     @IBAction func stopBtn() {
         timer.invalidate()
+        stopBtnLabel.isHidden = true
+        startBtnLabel.isHidden = false
+        lapBtnLabel.isHidden = true
+        resetBtnlabel.isHidden = false
     }
     
     
+    @IBAction func resetBtn() {
+        timerLabel.text = "00:00:00"
+        secondsElapsed = 0
+        self.lapsData = []
+        tableView.isHidden = true
+        tableView.reloadData()
+    }
     
     private func secondsToHoursMinutesSeconds(_ seconds: Int) -> (String) {
         let calHours = seconds / 3600
