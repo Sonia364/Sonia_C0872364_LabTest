@@ -45,7 +45,16 @@
                                     <action selector="lapBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="N72-tu-04E"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2H-P4-SfI">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-D2-4JD">
+                                <rect key="frame" x="29" y="333" width="349" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.57224519569999999" green="0.57712197340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="x6O-ho-hDx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UOG-Aa-lLd"/>
+                                </connections>
+                            </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITP-fc-pES">
                                 <rect key="frame" x="29" y="267" width="175" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.57224519569999999" green="0.57712197340000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -53,9 +62,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Stop"/>
                                 <connections>
-                                    <action selector="lapBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="Puf-su-A1c"/>
-                                    <action selector="startBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xl1-vR-2pF"/>
-                                    <action selector="stopBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFd-bu-JLB"/>
+                                    <action selector="stopBtn" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q6p-Ml-1ec"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -65,7 +72,8 @@
                     <connections>
                         <outlet property="lapBtnLabel" destination="EJG-js-vXM" id="ErS-wJ-Jfx"/>
                         <outlet property="startBtnLabel" destination="8WU-eL-svX" id="AHW-2y-yfu"/>
-                        <outlet property="stopBtnLabel" destination="q2H-P4-SfI" id="VNq-5H-W8p"/>
+                        <outlet property="stopBtnLabel" destination="ITP-fc-pES" id="97g-qs-6T7"/>
+                        <outlet property="tableView" destination="4TQ-D2-4JD" id="7c9-FQ-xTM"/>
                         <outlet property="timerLabel" destination="6b5-pa-8H7" id="8af-ju-4Ca"/>
                     </connections>
                 </viewController>

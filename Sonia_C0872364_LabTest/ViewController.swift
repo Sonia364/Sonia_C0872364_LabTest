@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopBtnLabel: UIButton!
     @IBOutlet weak var lapBtnLabel: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     var secondsElapsed = 0
     var timer = Timer()
-
+    var lapsData: [String] = []
+    
     @IBAction func startBtn() {
         
         startBtnLabel.isHidden = true
@@ -32,12 +34,18 @@ class ViewController: UIViewController {
     
     
     @IBAction func lapBtn() {
+        let currentLapValue = timerLabel.text
+        lapsData.append(currentLapValue!)
+        
+        tableView.isHidden = false
+        tableView.reloadData()
         
     }
     
     
+   
     @IBAction func stopBtn() {
-        self.timer.invalidate()
+        timer.invalidate()
     }
     
     
@@ -59,5 +67,26 @@ class ViewController: UIViewController {
         return dateFormatterPrint.string(from: date)
     }
 
+}
+
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lapsData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "")
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.text = lapsData[indexPath.row]
+        cell.textLabel?.textColor = .white
+        cell.detailTextLabel?.text = "Lap \(indexPath.row+1)"
+        cell.detailTextLabel?.textColor = .black
+        return cell
+    }
+    
+    
+    
 }
   
