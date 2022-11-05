@@ -38,29 +38,44 @@ class timerVC: UIViewController {
         timerLabel.isHidden = false
         timerPicker.isHidden = true
         let currentTime = getTime(sender: timerPicker)
-        self.secondsElapsed = Int(currentTime) ?? 0
+        //print(currentTime)
+        self.secondsElapsed = currentTime
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.secondsElapsed -= 1
-            self.timerLabel.text = "\(self.secondsElapsed)"
+            
+            if self.secondsElapsed > 0 {
+                
+                self.secondsElapsed -= 1
+                
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "HH:mm:ss"
+                
+                let dateFormatterPrint = DateFormatter()
+                dateFormatterPrint.dateFormat = "HH:mm:ss"
+                
+                let finalTime = String(self.secondsElapsed)
+                let date = dateFormatterGet.date(from: finalTime)
+                //self.timerLabel.text = dateFormatterPrint.string(from: date!)
+            }
+            
         }
     }
     
     
     @IBAction func pauseBtnAction() {
-        
+        timer.invalidate()
     }
     
-    private func getTime(sender:UIDatePicker) -> String
+    private func getTime(sender:UIDatePicker) -> Int
     {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm:ss"
         let ouptputTime = dateFormatter.string(from: sender.date)
         let timeArray = ouptputTime.components(separatedBy: ":")
-        let calHours = Int(timeArray[0]) ?? 0 * 3600
-        let calMinutes = Int(timeArray[1]) ?? 0 * 60
-        let calSeconds = Int(timeArray[2]) ?? 0
+        let calHours = (Int(timeArray[0]) ?? 0) * 3600
+        let calMinutes = (Int(timeArray[1]) ?? 0) * 60
+        let calSeconds = (Int(timeArray[2]) ?? 0)
         let finalTime = calHours + calMinutes + calSeconds
-        return "\(finalTime)"
+        return finalTime
     }
     
 }
