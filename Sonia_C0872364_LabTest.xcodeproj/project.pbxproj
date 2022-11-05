@@ -13,6 +13,7 @@
 		9B0284872915C91C00C88FFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0284852915C91C00C88FFA /* Main.storyboard */; };
 		9B0284892915C91D00C88FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0284882915C91D00C88FFA /* Assets.xcassets */; };
 		9B02848C2915C91D00C88FFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B02848A2915C91D00C88FFA /* LaunchScreen.storyboard */; };
+		9B75A8D82915DE7300311CD4 /* timerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B75A8D72915DE7300311CD4 /* timerVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9B0284882915C91D00C88FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B02848B2915C91D00C88FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B02848D2915C91D00C88FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B75A8D72915DE7300311CD4 /* timerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				9B02847F2915C91C00C88FFA /* AppDelegate.swift */,
 				9B0284812915C91C00C88FFA /* SceneDelegate.swift */,
 				9B0284832915C91C00C88FFA /* ViewController.swift */,
+				9B75A8D72915DE7300311CD4 /* timerVC.swift */,
 				9B0284852915C91C00C88FFA /* Main.storyboard */,
 				9B0284882915C91D00C88FFA /* Assets.xcassets */,
 				9B02848A2915C91D00C88FFA /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				9B0284842915C91C00C88FFA /* ViewController.swift in Sources */,
 				9B0284802915C91C00C88FFA /* AppDelegate.swift in Sources */,
+				9B75A8D82915DE7300311CD4 /* timerVC.swift in Sources */,
 				9B0284822915C91C00C88FFA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
