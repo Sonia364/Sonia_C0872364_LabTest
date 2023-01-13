@@ -27,7 +27,12 @@ class timerVC: UIViewController {
     
 
     @IBAction func cancelBtnAction() {
-        
+        timerLabel.text = "00:00:00"
+        secondsElapsed = 0
+        timerLabel.isHidden = true
+        timerPicker.isHidden = false
+        pauseBtn.isHidden = true
+        startBtn.isHidden = false
         
     }
     
@@ -37,45 +42,36 @@ class timerVC: UIViewController {
         pauseBtn.isHidden = false
         timerLabel.isHidden = false
         timerPicker.isHidden = true
-        let currentTime = getTime(sender: timerPicker)
-        //print(currentTime)
-        self.secondsElapsed = currentTime
+        let currentTime = timerPicker.countDownDuration
+        self.secondsElapsed = Int(currentTime)
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            
-            if self.secondsElapsed > 0 {
-                
-                self.secondsElapsed -= 1
-                
-                let dateFormatterGet = DateFormatter()
-                dateFormatterGet.dateFormat = "HH:mm:ss"
-                
-                let dateFormatterPrint = DateFormatter()
-                dateFormatterPrint.dateFormat = "HH:mm:ss"
-                
-                let finalTime = String(self.secondsElapsed)
-                let date = dateFormatterGet.date(from: finalTime)
-                //self.timerLabel.text = dateFormatterPrint.string(from: date!)
-            }
+            self.secondsElapsed -= 1
+            let finalTime = self.secondsToHoursMinutesSeconds(Int(self.secondsElapsed))
+            self.timerLabel.text = finalTime
             
         }
     }
     
     
     @IBAction func pauseBtnAction() {
-        timer.invalidate()
+        timer.invalidate()        
     }
     
-    private func getTime(sender:UIDatePicker) -> Int
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm:ss"
-        let ouptputTime = dateFormatter.string(from: sender.date)
-        let timeArray = ouptputTime.components(separatedBy: ":")
-        let calHours = (Int(timeArray[0]) ?? 0) * 3600
-        let calMinutes = (Int(timeArray[1]) ?? 0) * 60
-        let calSeconds = (Int(timeArray[2]) ?? 0)
-        let finalTime = calHours + calMinutes + calSeconds
-        return finalTime
+    private func secondsToHoursMinutesSeconds(_ seconds: Int) -> (String) {
+        let calHours = seconds / 3600
+        let calMinutes = (seconds % 3600) / 60
+        let calSeconds = (seconds % 3600) % 60
+        let finalTime = "\(calHours) : \(calMinutes): \(calSeconds)"
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "HH:mm:ss"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "HH:mm:ss"
+        
+        let date = dateFormatterGet.date(from: finalTime)!
+        
+        return dateFormatterPrint.string(from: date)
     }
     
 }
